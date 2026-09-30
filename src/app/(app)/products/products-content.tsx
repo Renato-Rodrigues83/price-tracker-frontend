@@ -47,6 +47,11 @@ export async function ProductsContent({ searchParams }: ProductsContentProps) {
     getCategories(),
   ]);
 
+  /*if (categories) {
+    console.log("[products] categories:", categories);
+    console.log("[products] categories.data:", categories?.data);
+  }*/
+
   return (
     <>
       <ProductFilters stores={stores.data} categories={categories.data} />

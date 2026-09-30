@@ -22,6 +22,10 @@ export async function PriceHistoryContent({
     ? await Promise.all([getOfferByUrl(offerUrl), getPriceHistory(offerUrl)])
     : [null, null];
 
+  /*if (selectedOffer && history) {
+    console.log("history:", history);
+    console.log("history.data:", history?.data);
+  }*/
   return (
     <>
       <PriceHistorySelector selectedOffer={selectedOffer} />
