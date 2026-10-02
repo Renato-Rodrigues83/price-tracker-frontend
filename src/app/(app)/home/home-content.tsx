@@ -1,4 +1,4 @@
-import { FeaturedOffersSection } from "@/components/home/featured-offers-section";
+import { FeaturedOffersSection } from "@/components/home";
 import { getFeaturedOffers } from "@/lib/services/server/featured-offers-service";
 
 export async function HomeContent() {

@@ -1,4 +1,4 @@
-import { FeaturedOfferSkeleton } from "@/components/home/home-skeleton";
+import { FeaturedOfferSkeleton } from "@/components/home";
 
 export default function Loading() {
   return (
