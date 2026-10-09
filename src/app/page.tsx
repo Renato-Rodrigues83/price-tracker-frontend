@@ -1,12 +1,28 @@
-import { AboutProject, Features, Header, Hero } from "@/components/landing";
+import {
+  AboutProject,
+  CallToAction,
+  Header,
+  Hero,
+  HowWorks,
+  TechStack,
+  Architecture,
+  Footer,
+} from "@/components/landing";
 
-export default function Home() {
+export default function LandingPage() {
   return (
-    <>
+    <div className="min-h-screen bg-background">
       <Header />
-      <Hero />
-      <AboutProject />
-      <Features />
-    </>
+
+      <main>
+        <Hero />
+        <AboutProject />
+        <HowWorks />
+        <Architecture />
+        <TechStack />
+        <CallToAction />
+        <Footer />
+      </main>
+    </div>
   );
 }

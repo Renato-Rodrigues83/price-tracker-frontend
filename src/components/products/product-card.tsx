@@ -8,6 +8,8 @@ import {
 } from "@/components/ui/card";
 
 import type { Offer } from "@/interfaces/offer";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "../ui/button";
 
 interface ProductCardProps {
   offer: Offer;
@@ -66,12 +68,15 @@ export function ProductCard({ offer }: ProductCardProps) {
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0">
+      <CardFooter className="shrink-0 p-0 pt-0">
         <a
           href={offer.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full rounded-md border px-4 py-2 text-center text-sm font-medium transition-colors hover:bg-accent">
+          className={cn(
+            buttonVariants({ variant: "outline" }),
+            "w-full rounded-t-none",
+          )}>
           Ver oferta
         </a>
       </CardFooter>

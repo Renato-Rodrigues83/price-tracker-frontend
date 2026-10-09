@@ -21,7 +21,7 @@ export function FeaturedOffersCard({
   return (
     <Card className="flex h-97.5 flex-col overflow-hidden">
       <CardHeader className="p-0">
-        <div className="relative h-47.5 shrink-0 bg-muted">
+        <div className="relative h-47.5 shrink-0">
           <Image
             src={featuredOffers.image}
             alt={featuredOffers.title}
@@ -43,12 +43,15 @@ export function FeaturedOffersCard({
         </p>
       </CardContent>
 
-      <CardFooter className="shrink-0 p-3 pt-0">
+      <CardFooter className="shrink-0 p-0 pt-0">
         <a
           href={featuredOffers.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: "outline" }), "w-full")}>
+          className={cn(
+            buttonVariants({ variant: "outline" }),
+            "w-full rounded-t-none",
+          )}>
           Ver oferta
         </a>
       </CardFooter>

@@ -7,14 +7,15 @@ interface CardTechProps {
 
 export function CardTech({ title, description }: CardTechProps) {
   return (
-    <Card className="w-50 h-50 border-2 border-border bg-background">
-      <CardHeader className="border-b-2 h-10 border-b-border">
-        <CardTitle className="text-lg font-semibold text-center flxex items-center justify-center">
+    <Card className="flex w-full max-w-60 min-h-60 flex-col border-2">
+      <CardHeader className="border-b px-4 py-3">
+        <CardTitle className="text-center text-lg font-semibold">
           {title}
         </CardTitle>
       </CardHeader>
-      <CardContent className="text-start h-0">
-        <p>{description}</p>
+
+      <CardContent className="flex flex-1 items-start p-4">
+        <p className="text-sm leading-6 text-muted-foreground">{description}</p>
       </CardContent>
     </Card>
   );

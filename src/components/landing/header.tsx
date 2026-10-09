@@ -1,15 +1,23 @@
 import Link from "next/link";
+import { ThemeSwitch } from "@/components/theme-switch";
 
 export function Header() {
   return (
-    <header className=" w-full space-y-4 border-b border-b-border bg-background p-4">
-      <div className=" flex items-center justify-between mx-auto max-w-7xl">
-        <Link href="/" className=" p-4">
+    <header className="w-full border-b bg-background">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4">
+        <h1 className="text-lg font-bold transition-colors hover:text-primary">
           Price Tracker
-        </Link>
-        <Link href="/home" className=" p-4">
-          Ir para Home
-        </Link>
+        </h1>
+
+        <div className="flex items-center gap-6">
+          <ThemeSwitch />
+
+          <Link
+            href="/home"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+            Ir para Home
+          </Link>
+        </div>
       </div>
     </header>
   );

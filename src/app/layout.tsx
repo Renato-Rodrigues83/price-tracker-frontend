@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, PT_Sans_Caption } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,13 +19,19 @@ export const metadata: Metadata = {
   title: "Price Tracker",
   description: "Monitore preços de produtos em diferentes lojas.",
 };
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${ptSansCaption.variable} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+      suppressHydrationWarning
+      className={`${inter.variable} ${ptSansCaption.variable}`}>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

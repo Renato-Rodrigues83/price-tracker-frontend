@@ -60,17 +60,39 @@ export function PriceHistoryChart({ data }: PriceHistoryChartProps) {
               left: 10,
               bottom: 10,
             }}>
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" />
 
-            <XAxis dataKey="date" tick={{ fontSize: 12 }} tickMargin={8} />
+            <XAxis
+              dataKey="date"
+              tick={{
+                fontSize: 12,
+                fill: "var(--muted-foreground)",
+              }}
+              tickMargin={8}
+            />
 
             <YAxis
-              tick={{ fontSize: 12 }}
+              tick={{
+                fontSize: 12,
+                fill: "var(--muted-foreground)",
+              }}
               tickFormatter={(value) => formatPrice(value)}
               width={90}
             />
 
             <Tooltip
+              contentStyle={{
+                backgroundColor: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "0.5rem",
+                color: "var(--card-foreground)",
+              }}
+              labelStyle={{
+                color: "var(--card-foreground)",
+              }}
+              itemStyle={{
+                color: "var(--card-foreground)",
+              }}
               formatter={(value) => [formatPrice(Number(value)), "Preço"]}
               labelFormatter={(_, payload) => {
                 const point = payload?.[0]?.payload as ChartDTO | undefined;
@@ -82,13 +104,70 @@ export function PriceHistoryChart({ data }: PriceHistoryChartProps) {
             <Line
               type="monotone"
               dataKey="price"
-              stroke="currentColor"
+              stroke="var(--primary)"
               strokeWidth={2}
               dot={{
                 r: 4,
+                fill: "var(--primary)",
               }}
               activeDot={{
                 r: 6,
+                fill: "var(--primary)",
+              }}
+            />
+            <CartesianGrid stroke="var(--border)" strokeDasharray="3 3" />
+
+            <XAxis
+              dataKey="date"
+              tick={{
+                fontSize: 12,
+                fill: "var(--muted-foreground)",
+              }}
+              tickMargin={8}
+            />
+
+            <YAxis
+              tick={{
+                fontSize: 12,
+                fill: "var(--muted-foreground)",
+              }}
+              tickFormatter={(value) => formatPrice(value)}
+              width={90}
+            />
+
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "0.5rem",
+                color: "var(--card-foreground)",
+              }}
+              labelStyle={{
+                color: "var(--card-foreground)",
+              }}
+              itemStyle={{
+                color: "var(--card-foreground)",
+              }}
+              formatter={(value) => [formatPrice(Number(value)), "Preço"]}
+              labelFormatter={(_, payload) => {
+                const point = payload?.[0]?.payload as ChartDTO | undefined;
+
+                return point?.fullDate ?? "";
+              }}
+            />
+
+            <Line
+              type="monotone"
+              dataKey="price"
+              stroke="var(--primary)"
+              strokeWidth={2}
+              dot={{
+                r: 4,
+                fill: "var(--primary)",
+              }}
+              activeDot={{
+                r: 6,
+                fill: "var(--primary)",
               }}
             />
           </LineChart>

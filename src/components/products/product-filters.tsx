@@ -54,13 +54,13 @@ export function ProductFilters({ stores, categories }: ProductsFiltersProps) {
     });
   };
 
-  const handleStoreChange = (value: string) => {
+  const handleStoreChange = (value: string | null) => {
     updateParams({
       store: value === "all" || value === null ? null : value,
     });
   };
 
-  const handleCategoryChange = (value: string) => {
+  const handleCategoryChange = (value: string | null) => {
     updateParams({
       category: value === "all" || value === null ? null : value,
     });
